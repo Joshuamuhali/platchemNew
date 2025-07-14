@@ -25,5 +25,5 @@ export default defineConfig({
     react(),
     componentTagger()
   ],
-  base: "/platchemNew"
+  // base: "/platchemNew"
 });
