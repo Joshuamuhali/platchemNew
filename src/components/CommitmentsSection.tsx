@@ -5,7 +5,8 @@ import {
   Shield, 
   Target, 
   Leaf, 
-  Award 
+  Award,
+  Users2 
 } from 'lucide-react';
 
 const CommitmentsSection = () => {
@@ -27,6 +28,12 @@ const CommitmentsSection = () => {
       title: "Sustainable Practices",
       description: "Implementing environmentally responsible engineering solutions for long-term sustainability.",
       color: "from-green-500 to-green-600"
+    },
+    {
+      icon: Users2,
+      title: "Corporate Social Responsibility",
+      description: "Investing in community development, education, and inclusive growth across the regions we serve.",
+      color: "from-purple-500 to-purple-600"
     }
   ];
 

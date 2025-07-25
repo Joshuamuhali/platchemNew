@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import HeroSection from '@/components/HeroSection';
-import StatsSection from '@/components/StatsSection';
-import { EngineeringServices } from '@/components/EngineeringServices';
-import IndustriesSection from '@/components/IndustriesSection';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import ProjectShowcase from '@/components/ProjectShowcase';
-import CommitmentsSection from '@/components/CommitmentsSection';
-import CTASection from '@/components/CTASection';
-import SlidingForm from '../components/SlidingForm';
+import HeroSection from '../components/HeroSection';
+import MissionStatement from '../components/MissionStatement';
+import StatsSection from '../components/StatsSection';
+import { EngineeringServices } from '../components/EngineeringServices';
+import IndustriesSection from '../components/IndustriesSection';
+import OurClients from '../components/OurClients';
+import WhyChooseUs from '../components/WhyChooseUs';
+import ProjectShowcase from '../components/ProjectShowcase';
+import CommitmentsSection from '../components/CommitmentsSection';
+import CTASection from '../components/CTASection';
+import ContactSection from '../components/ContactSection';
 import SlidingContactForm from '../components/SlidingContactForm';
 
 const Index = () => {
@@ -53,27 +55,16 @@ const Index = () => {
         <HeroSection />
         <StatsSection />
         
-        {/* Hidden Sliding Form Button */}
-        <button id="contact-form" className="hidden">
-          <SlidingForm
-            panels={[
-              {
-                id: 'contact',
-                title: 'Contact Us',
-                Component: SlidingContactForm
-              }
-            ]}
-            defaultPanelId="contact"
-            isOpen={false}
-            onClose={() => {}}
-          />
-        </button>
+        {/* SlidingContactForm is now used directly in the components that need it */}
         <EngineeringServices />
-        <WhyChooseUs />
+        <MissionStatement />
         <IndustriesSection />
+        <OurClients />
+        <WhyChooseUs />
         <ProjectShowcase />
         <CommitmentsSection />
         <CTASection />
+        <ContactSection />
       </main>
     </div>
   );

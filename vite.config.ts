@@ -12,6 +12,15 @@ const resolvePath = (p: string) => path.resolve(__dirname, p);
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    target: 'esnext',
+    rollupOptions: {
+      input: {
+        main: resolvePath('index.html'),
+        'service-worker': resolvePath('src/service-worker.ts')
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': resolvePath('./src')

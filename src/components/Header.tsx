@@ -1,18 +1,23 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import GreenForm from './GreenForm';
+import TopBar from './TopBar';
 
 
 interface NavigationItem {
   name: string;
   href: string;
+  isSection?: boolean;
 }
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,63 +29,48 @@ const Header = () => {
   }, []);
 
   const navigation: NavigationItem[] = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Industries', href: '#industries' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/', isSection: false },
+    { name: 'About', href: 'about', isSection: true },
+    { name: 'Services', href: '/services', isSection: false },
+    { name: 'Industries', href: 'industries', isSection: true },
+    { name: 'Gallery', href: '/gallery', isSection: false },
+    { name: 'Contact', href: '/contact', isSection: false },
   ];
 
   const handleNavigation = (item: NavigationItem) => {
-    if (item.href.startsWith('#')) {
-      // Scroll to section on current page or navigate to home first
+    if (item.isSection) {
+      // For section links, scroll to the section on the home page
       if (window.location.pathname !== '/') {
         navigate('/');
+        // Wait for the home page to load before scrolling
         setTimeout(() => {
-          const element = document.querySelector(item.href) as HTMLElement | null;
+          const element = document.getElementById(item.href);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 100);
       } else {
-        const element = document.querySelector(item.href) as HTMLElement | null;
+        const element = document.getElementById(item.href);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }
     } else {
+      // For regular navigation, use React Router
       navigate(item.href);
     }
+    
     setIsMenuOpen(false);
 
-    // If contact is clicked, navigate to the contact page
+    // If contact is clicked, show the contact form modal
     if (item.name === 'Contact') {
-      navigate(item.href);
+      setShowContactForm(true);
     }
   };
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="bg-platchem-navy text-white py-2 px-4 text-sm">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Phone className="h-4 w-4" />
-              <span>+260 767 771 006 / +260 969 999 222</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail className="h-4 w-4" />
-              <span>platchem@platchemgroup.com</span>
-            </div>
-          </div>
-          <div className="hidden sm:flex items-center space-x-2">
-            <span className="text-platchem-lime">Lusaka:</span>
-            <span>Plot No.10, Kawama Road, Woodlands</span>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       {/* Main Header */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -143,6 +133,29 @@ const Header = () => {
           )}
         </div>
       </header>
+
+      {/* GreenForm Modal */}
+      <AnimatePresence>
+        {showContactForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
+            onClick={() => setShowContactForm(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="w-full max-w-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <GreenForm onClose={() => setShowContactForm(false)} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

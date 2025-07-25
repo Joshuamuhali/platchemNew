@@ -84,19 +84,18 @@ const StatsSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-inter">
+        <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-inter">
             Proven Track Record
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12">
             Numbers that speak to our commitment to engineering excellence
           </p>
-        </div>
-        
-        <div 
-          ref={ref}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12"
-        >
+          
+          <div 
+            ref={ref}
+            className="flex flex-col sm:flex-row justify-center items-center gap-8 max-w-4xl mx-auto"
+          >
           {stats.map((stat, index) => (
             <div 
               key={index}
@@ -118,6 +117,7 @@ const StatsSection = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,21 +1,22 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import SlidingContactForm from '@/components/SlidingContactForm';
+import GreenForm from '@/components/GreenForm';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
 const CTASection = () => {
   const navigate = useNavigate();
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleContactClick = () => {
-    const form = document.querySelector('#contact-form') as HTMLFormElement | null;
-    if (form) {
-      const slidingForm = document.querySelector('SlidingContactForm') as HTMLFormElement | null;
-      if (slidingForm) {
-        slidingForm.dispatchEvent(new Event('submit', { bubbles: true }));
-      }
-    }
+    setIsFormOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
   };
 
   return (
@@ -70,6 +71,38 @@ const CTASection = () => {
           </div>
         </div>
       </div>
+
+      {/* GreenForm Modal */}
+      <AnimatePresence>
+        {isFormOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={closeForm}
+          >
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              className="bg-white rounded-lg shadow-xl w-full max-w-2xl relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeForm}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                aria-label="Close"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className="p-6">
+                <GreenForm onClose={closeForm} />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

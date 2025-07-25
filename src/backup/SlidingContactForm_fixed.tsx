@@ -136,7 +136,7 @@ const SlidingContactForm: React.FC = () => {
             {/* Left Info Panel */}
             <div className="bg-platchem-navy text-white p-8 w-full md:w-1/2 flex flex-col justify-between">
               <div>
-                <img src="/logo.png" alt="Company Logo" className="h-12 mb-6" />
+                <img src="/logo512.png" alt="Company Logo" className="h-12 mb-6" />
                 <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
                 <p className="mb-6 text-sm opacity-80">We'd love to hear from you. Here's how you can reach us:</p>
 
@@ -394,3 +394,4 @@ const SlidingContactForm: React.FC = () => {
 };
 
 export default SlidingContactForm;
+

@@ -140,9 +140,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Gallery
               </Link>
               <Link
-                to="#contact"
+                to="/contact"
                 className="text-gray-600 hover:text-platchem-lime transition-colors"
-                aria-current={window.location.pathname === '/' && window.location.hash === '#contact' ? 'page' : undefined}
+                aria-current={window.location.pathname === '/contact' ? 'page' : undefined}
               >
                 Contact
               </Link>

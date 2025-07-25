@@ -32,6 +32,10 @@ const WhyChooseUs = () => {
     {
       title: "24/7 Support",
       description: "Emergency support available around the clock"
+    },
+    {
+      title: "Corporate Social Responsibility",
+      description: "Driving community growth, sustainability, and ethical impact through every project."
     }
   ];
 

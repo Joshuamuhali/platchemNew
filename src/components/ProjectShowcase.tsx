@@ -20,7 +20,7 @@ const ProjectShowcase = () => {
       description: "Zero-harm safety protocols with comprehensive training programs for all industrial and mining operations."
     },
     {
-      image: "/lovable-uploads/specialized.png",
+      image: "/lovable-uploads/board.jpeg",
       title: "Specialized Projects Team",
       description: "Dedicated project teams with specialized safety equipment and protocols for complex industrial environments."
     }

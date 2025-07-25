@@ -1,0 +1,47 @@
+.topBarContainer {
+  background-color: #0C1527; /* platchem-navy */
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.locationText {
+  color: #A2D729; /* platchem-lime */
+}
+
+/* Hide on small screens */
+@media (max-width: 767px) {
+  .topBarContainer {
+    display: none;
+  }
+}

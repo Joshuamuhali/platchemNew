@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Cog, Droplets, HardHat, Shield } from 'lucide-react';
+import { Cog, HardHat } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface Service {
@@ -17,50 +17,28 @@ const services: Service[] = [
   {
     id: 1,
     icon: Cog,
-    title: "Engineering & Design Solutions",
-    description: "Comprehensive engineering services for industrial and commercial applications — from concept to completion.",
+    title: "Engineering Solutons",
+    description: "Tailored plant maintenance, engineering, and skilled labor outsourcing for industrial efficiency and reliability.",
     details: [
-      "• Mechanical Engineering",
-      "• Electrical Engineering",
-      "• Civil Engineering",
-      "• Equipment Design & Installation",
-      "• Power Systems & Control Panels"
+      "• Plant Maintenance & Rehabilitation",
+      "• Mechanical Engineering & Projects",
+      "• Civil & Structural Engineering",
+      "• Power & Control Systems",
+      "• Skilled Labor Outsourcing"
     ]
   },
   {
     id: 2,
-    icon: Droplets,
-    title: "Water & Process Solutions",
-    description: "Advanced water treatment and smart automation systems tailored to your industry's efficiency and sustainability needs.",
-    details: [
-      "• RO Systems & UV Treatment",
-      "• Industrial Filtration",
-      "• Process Automation (SCADA, PLC, Process Control)",
-      "• Waste Management"
-    ]
-  },
-  {
-    id: 3,
     icon: HardHat,
-    title: "Mining & Industrial Support",
-    description: "Specialized support for mining operations and large-scale industrial activities with a focus on safety, compliance, and reliability.",
+    title: "Mining Support Solutions",
+    description: "Comprehensive mining support from drilling and blasting to manpower solutions for underground and surface operations.",
     details: [
-      "• Mine Planning",
-      "• Equipment Supply",
-      "• Infrastructure & Safety Systems",
-      "• Project Coordination"
-    ]
-  },
-  {
-    id: 4,
-    icon: Shield,
-    title: "Operations, Safety & Workforce",
-    description: "End-to-end support for smooth industrial operations, from safety programs to skilled labor and supply chain management.",
-    details: [
-      "• Workplace Safety & Risk Assessment",
-      "• Safety Training & Compliance",
-      "• Skilled Labor Provision",
-      "• Supply Chain & Logistics"
+      "• Drilling Equipment Supply",
+      "• Underground Support Services",
+      "• Shotcreting & Fibrecreting",
+      "• Drilling & Blasting",
+      "• Secondary Development",
+      "• Skilled Labor & Manpower Hire"
     ]
   }
 ];
@@ -73,17 +51,16 @@ export function EngineeringServices() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-platchem-navy mb-6 font-inter">
-            Our Engineering Services
+            Our Core Services
           </h2>
           <p className="text-xl text-platchem-gray max-w-3xl mx-auto leading-relaxed">
-            Comprehensive industrial solutions delivered by certified professionals 
-            with deep expertise across multiple engineering disciplines.
+            Industrial engineering and mining solutions delivered by certified professionals with deep expertise.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service) => (
-            <Card 
+            <Card
               key={service.id}
               className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg animate-scale-in"
             >
@@ -100,19 +77,18 @@ export function EngineeringServices() {
                   <CardDescription className="text-platchem-gray mb-3 leading-relaxed">
                     {service.description}
                   </CardDescription>
-                  <ul className="text-sm text-platchem-gray space-y-1 mb-4">
-                    {service.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <span className="w-2 h-2 bg-platchem-lime rounded-full mr-2"></span>
-                        {detail}
-                      </li>
-                    ))}
+                  <ul className="text-sm text-platchem-gray space-y-1 mb-4 list-disc list-inside">
+                    {service.details.map((detail, idx) => {
+                      // Remove bullet point if it exists (both • and -)
+                      const cleanDetail = detail.replace(/^[•-]\s*/, '');
+                      return <li key={idx}>{cleanDetail}</li>;
+                    })}
                   </ul>
                 </div>
                 <div className="mt-3">
-                  <Button 
-                    onClick={() => navigate('/services')}
-                    variant="outline" 
+                  <Button
+                    onClick={() => navigate(service.title.toLowerCase().includes('engineering') ? '/services/engineering' : '/services/mining')}
+                    variant="outline"
                     size="sm"
                     className="border-platchem-lime text-platchem-lime hover:bg-platchem-lime hover:text-white transition-all duration-300 w-full justify-center"
                   >
@@ -125,7 +101,7 @@ export function EngineeringServices() {
         </div>
 
         <div className="text-center mt-8">
-          <Button 
+          <Button
             onClick={() => navigate('/services')}
             size="lg"
             className="bg-platchem-lime hover:bg-platchem-lime/90 text-white font-semibold px-8 py-4 w-full md:w-auto"

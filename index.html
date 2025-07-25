@@ -28,7 +28,17 @@
     <meta property="twitter:title" content="Platchem Ltd - Leading Engineering Solutions in Zambia" />
     <meta property="twitter:description" content="Innovative engineering solutions for mining, water treatment, and industrial sectors in Zambia since 2008." />
     <meta property="twitter:image" content="/lovable-uploads/f8693ab6-eddf-42aa-835c-1192015823ef.png" />
-
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/public/service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      }
+    </script>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/f8693ab6-eddf-42aa-835c-1192015823ef.png" />
@@ -41,19 +51,6 @@
     <!-- Performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(registration => {
-            console.log('ServiceWorker registration successful');
-          })
-          .catch(err => {
-            console.log('ServiceWorker registration failed: ', err);
-          });
-      });
-    }
-  </script>
   </head>
 
   <body>

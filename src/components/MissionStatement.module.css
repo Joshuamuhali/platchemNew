@@ -1,0 +1,69 @@
+/* MissionStatement.module.css */
+.orbitContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  margin: 0 auto;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.icon {
+  position: absolute;
+  color: var(--color-platchem-navy);
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon:hover {
+  color: var(--color-platchem-lime);
+  transform: scale(1.2);
+}
+
+.content {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .orbitContainer {
+    min-height: 250px;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+}
