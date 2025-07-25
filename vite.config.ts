@@ -17,7 +17,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolvePath('index.html'),
-        'service-worker': resolvePath('src/service-worker.ts')
+        'service-worker': resolvePath('src/service-worker.js')
       }
     }
   },
