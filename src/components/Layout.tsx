@@ -43,7 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Top Bar */}
       <div
         role="banner"
-        className="bg-platchem-navy/95 text-white"
+        className="bg-platchem-navy/95 text-white hidden md:block"
         aria-label="Top contact information"
       >
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">

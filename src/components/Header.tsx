@@ -70,7 +70,9 @@ const Header = () => {
 
   return (
     <>
-      <TopBar />
+      <div className="hidden md:block">
+        <TopBar />
+      </div>
 
       {/* Main Header */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${
