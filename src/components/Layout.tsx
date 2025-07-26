@@ -51,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex items-center space-x-2">
               <Phone className="h-5 w-5 text-platchem-lime" aria-hidden="true" />
               <span className="text-sm font-medium">
-                +260 767 771 006 / +260 969 999 222 / +260 761 110 505
+              +260 96 024 9889 / +260 969 999 222 / +260 767 771 006
               </span>
             </div>
             <div className="flex items-center space-x-2">

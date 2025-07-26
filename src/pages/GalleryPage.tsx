@@ -47,7 +47,7 @@ const GalleryPage = () => {
       description: 'Smelter and processing facilities',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani1.jpeg',
-      date: '05/05/2023'
+      date: '05/05/2024'
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ const GalleryPage = () => {
       description: 'Smelter maintenance operations',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani2.jpeg',
-      date: '06/06/2023'
+      date: '06/06/2024'
     },
     {
       id: 7,
@@ -63,7 +63,7 @@ const GalleryPage = () => {
       description: 'Copper processing equipment',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani3.jpeg',
-      date: '07/07/2023'
+      date: '07/07/2024'
     },
     {
       id: 8,
@@ -71,7 +71,7 @@ const GalleryPage = () => {
       description: 'Mine site infrastructure',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani4.jpeg',
-      date: '08/08/2023'
+      date: '08/08/2024'
     },
     {
       id: 9,
@@ -79,7 +79,7 @@ const GalleryPage = () => {
       description: 'Aerial view of smelter complex',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani5.jpeg',
-      date: '09/09/2023'
+      date: '09/09/2024'
     },
     {
       id: 10,
@@ -87,7 +87,7 @@ const GalleryPage = () => {
       description: 'Mine operations team',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani6.jpeg',
-      date: '10/10/2023'
+      date: '10/10/2025'
     },
     
     // Itezhi Tezhi Power
@@ -97,7 +97,7 @@ const GalleryPage = () => {
       description: 'Hydroelectric dam overview',
       category: 'Energy',
       imageUrl: '/lovable-uploads/its1.jpeg',
-      date: '11/11/2023'
+      date: '11/11/2025'
     },
     {
       id: 12,
@@ -105,7 +105,7 @@ const GalleryPage = () => {
       description: 'Hydroelectric power generation',
       category: 'Energy',
       imageUrl: '/lovable-uploads/its2.jpeg',
-      date: '12/12/2023'
+      date: '12/12/2025'
     },
     {
       id: 13,
@@ -113,7 +113,7 @@ const GalleryPage = () => {
       description: 'Hydro turbine maintenance',
       category: 'Energy',
       imageUrl: '/lovable-uploads/its3.jpeg',
-      date: '01/13/2023'
+      date: '01/13/2025'
     },
     {
       id: 14,
@@ -121,7 +121,7 @@ const GalleryPage = () => {
       description: 'Power station control systems',
       category: 'Energy',
       imageUrl: '/lovable-uploads/its4.jpeg',
-      date: '02/14/2023'
+      date: '02/14/2025'
     }
   ];
 
@@ -199,6 +199,47 @@ const GalleryPage = () => {
             </motion.div>
           ))}
         </motion.div>
+
+
+{/* Mining Overview Section */}
+<div className="mt-20">
+  <div className="bg-white rounded-xl p-8 md:p-12 text-center mb-12 shadow-md">
+    <h2 className="text-3xl font-bold text-platchem-lime mb-4">Empowering the Mining Sector</h2>
+    <p className="text-lg text-platchem-gray leading-relaxed max-w-3xl mx-auto">
+      Our mining operations are backed by advanced equipment and engineering innovation — ensuring 
+      safe, efficient, and sustainable extraction and processing. From copper smelting plants to 
+      high-performance infrastructure, Platchem proudly supports Zambia’s mining excellence.
+    </p>
+  </div>
+
+  {/* Mining Image Gallery */}
+  <div>
+    <h3 className="text-2xl font-bold text-platchem-lime mb-8 text-center">Mining Equipment Highlights</h3>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { id: 1, imageUrl: '/lovable-uploads/mining1.jpeg', alt: 'Excavation equipment on site' },
+        { id: 2, imageUrl: '/lovable-uploads/mining2.jpeg', alt: 'Copper smelting system' },
+        { id: 3, imageUrl: '/lovable-uploads/mining3.jpeg', alt: 'Heavy-duty mining trucks' },
+        { id: 4, imageUrl: '/lovable-uploads/mining4.jpeg', alt: 'On-site operations crew' },
+        { id: 5, imageUrl: '/lovable-uploads/mining5.jpeg', alt: 'Open pit mine overview' },
+        { id: 6, imageUrl: '/lovable-uploads/mining6.jpeg', alt: 'Open pit mine overview' }
+
+      ].map((img) => (
+        <div
+          key={img.id}
+          className="rounded-lg overflow-hidden h-64 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
+          <img
+            src={img.imageUrl}
+            alt={img.alt}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
         {/* CSR Commitment Section */}
         <div className="mt-20">

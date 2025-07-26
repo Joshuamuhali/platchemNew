@@ -89,7 +89,7 @@ const Gallery = () => {
       description: 'Overview of the Mopani Copper Mines site showing the smelter and processing facilities.',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani1.jpeg',
-      date: new Date(2023, 4, 20).toLocaleDateString('en-US', {
+      date: new Date(2024, 4, 20).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
@@ -101,7 +101,7 @@ const Gallery = () => {
       description: 'Our team working on the smelter maintenance and optimization at Mopani Copper Mines.',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani2.jpeg',
-      date: new Date(2023, 4, 25).toLocaleDateString('en-US', {
+      date: new Date(2024, 4, 25).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
@@ -113,7 +113,7 @@ const Gallery = () => {
       description: 'Detailed view of the copper processing equipment at Mopani Mines.',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani3.jpeg',
-      date: new Date(2023, 5, 5).toLocaleDateString('en-US', {
+      date: new Date(2024, 5, 5).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
@@ -149,7 +149,7 @@ const Gallery = () => {
       description: 'Our team conducting operations and maintenance at Mopani Copper Mines.',
       category: 'Mining',
       imageUrl: '/lovable-uploads/mopani6.jpeg',
-      date: new Date(2023, 6, 5).toLocaleDateString('en-US', {
+      date: new Date(2025, 6, 5).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
@@ -163,7 +163,7 @@ const Gallery = () => {
       description: 'Aerial view of the Itezhi Tezhi Dam and hydroelectric power station.',
       category: 'Energy',
       imageUrl: '/lovable-uploads/its1.jpeg',
-      date: new Date(2023, 6, 15).toLocaleDateString('en-US', {
+      date: new Date(2025, 6, 15).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
