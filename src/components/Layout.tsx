@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, Facebook, Twitter, Linkedin, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { MobileMenu } from '@/components/MobileMenu';
 import Footer from './Footer';
+import SEO from './SEO/SEO';
 
 interface LayoutProps {
   children: React.ReactNode;
+  title?: string;
+  description?: string;
+  image?: string;
+  pageType?: 'website' | 'article';
+  noIndex?: boolean;
+  keywords?: string[];
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  title,
+  description,
+  image,
+  pageType = 'website',
+  noIndex = false,
+  keywords = []
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTopOfPage, setIsTopOfPage] = useState(true);
 
@@ -29,8 +44,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
   };
 
+  const { pathname } = useLocation();
+  const defaultTitle = 'Platchem Ltd - Leading Engineering Solutions in Zambia';
+  const defaultDescription = 'Platchem Ltd: Zambia\'s premier engineering company since 2008. Specializing in mining automation, water treatment, industrial solutions & safety systems.';
+  
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" itemScope itemType="https://schema.org/WebPage">
+      <SEO
+        title={title || defaultTitle}
+        description={description || defaultDescription}
+        image={image}
+        pageType={pageType}
+        noIndex={noIndex}
+        keywords={keywords}
+      />
       {/* Skip to content link */}
       <Button
         variant="ghost"
